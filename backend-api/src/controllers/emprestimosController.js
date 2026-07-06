@@ -1,4 +1,4 @@
-const connection = require('../config/db');
+const connection = require('../database/db');
 
 function listarEmprestimos(req, res) {
     connection.query(

@@ -1,4 +1,4 @@
-const db = require('../config/db') // ou '../db' dependendo do teu caminho
+const db = require('../database/db') // ou '../db' dependendo do teu caminho
 const bcrypt = require('bcrypt')
 
 /* =========================

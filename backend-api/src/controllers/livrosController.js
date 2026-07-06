@@ -1,4 +1,4 @@
-const connection = require('../config/db');
+const connection = require('../database/db');
 
 function listarLivros(req, res) {
     connection.query(`SELECT 
