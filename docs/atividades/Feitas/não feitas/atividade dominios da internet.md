@@ -1,7 +1,5 @@
 # Atividades da Aula 03 — Domínios de Internet
 
-
-
 ---
 
 # Atividade 1 — Domínio, URL ou hospedagem?
