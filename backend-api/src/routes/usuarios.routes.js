@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const autenticarToken = require('../middleware/middleware');
+const autenticarToken = require('../middlewares/middleware');
 
 const {
-listarUsuarios, buscarUsuarioPorId, cadastrarUsuario, 
-atualizarUsuario, removerUsuario } = require('../controllers/usuariosController');
+listarUsuarios, 
+buscarUsuarioPorId, 
+cadastrarUsuario, 
+atualizarUsuario, 
+removerUsuario 
+} = require('../controllers/usuariosController');
 
 router.get('/', autenticarToken, listarUsuarios);
 router.get('/:id', autenticarToken, buscarUsuarioPorId);
