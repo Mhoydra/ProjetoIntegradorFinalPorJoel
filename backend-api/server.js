@@ -1,6 +1,11 @@
 const app = require("./src/app.js");
-const PORT = 3000;
+const port = Number(process.env.PORT || 3000);
 
-app.listen(PORT, ()=>{
-    console.log(`Servidor rodando na porta http://localhost:${PORT}`)
+if (!Number.isInteger(port) || port < 1 || port > 65535){
+    console.error('PORT deve ser número entre 1 e 65535');
+    process.exit(1);
+};
+
+app.listen(port, ()=>{
+    console.log(`Servidor rodando na porta http://localhost:${port}`)
 });
