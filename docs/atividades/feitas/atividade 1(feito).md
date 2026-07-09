@@ -26,9 +26,21 @@
     - Mysql -> 3306
 );
 6. Liste as variáveis ​​de ambiente já usadas ou possíveis.(
-    - 
+    - DB_HOST=localhost
+    - DB_USER=teste
+    - DB_PASSWORD=teste
+    - DB_NAME=biblioversoDB
+    - DB_PORT=3306
+    - JWT_SECRET=chave_super_secreta_mesmo
+    - JWT_EXPIRES_IN=1h
+    - PORT=3000
 );
-7. Registre se há uploads ou arquivos que precisam permanecer.
+7. Registre se há uploads ou arquivos que precisam permanecer. (
+    BiblioversoDB.sql, 
+    .env.example,
+    assets(no futuro)
+    docs e readme.md
+)
 8. Escreva tudo no arquivo markdown em anexo
 
 - sem ficheiro no arquivo -

@@ -9,9 +9,9 @@ app.use(express.json());
 
 //rotas
 const usuariosRoutes = require('./routes/usuarios.routes');
-//const loginRoutes = require('./routes/auth.routes');
+const loginRoutes = require('./routes/auth.routes');
 
-//app.use('/api/login', loginRoutes);
+app.use('/api/login', loginRoutes);
 app.use('/api/usuarios',usuariosRoutes)
 
 app.get('/', (req,res) =>{

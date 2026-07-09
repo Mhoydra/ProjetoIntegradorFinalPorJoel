@@ -1,4 +1,4 @@
-const conexao = require('../database/conexao');
+const conexao = require('../database/conection');
 const bcrypt = require('bcrypt');
 
 const jwt = require('jsonwebtoken');

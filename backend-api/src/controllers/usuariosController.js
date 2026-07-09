@@ -64,9 +64,7 @@ async function cadastrarUsuario(req, res) {
             });
         }
 
-       const senhaCriptografada = await bcrypt.hash(senha, 10);
-
-        
+        const senhaCriptografada = await bcrypt.hash(senha, 10);
         const [resultado] = await conexao.query(
             'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
             [nome, email, senhaCriptografada]
