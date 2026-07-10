@@ -1,9 +1,20 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 function LandingPage() {
-    return(
-        <div>
-            <h2>LandingPage</h2>
+  const navigate = useNavigate()
+
+  return (
+    <body className='bg-blue-100'>
+      <nav>
+        <div className='flex justify-between m-5'>
+          <h1 className='font-semibold text-2xl'>Biblio<span className='text-purple-600'>verso</span></h1>
+          <button onClick={() => navigate('/login')}
+          className='flex bg-purple-500 text-white px-6 py-3 rounded-2xl'>Fazer Login</button>
         </div>
-    )
-}
+      </nav>
+    </body>
+  );
+};
 
 export default LandingPage;
