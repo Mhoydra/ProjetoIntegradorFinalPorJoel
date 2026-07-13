@@ -48,38 +48,40 @@ function LoginForms() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
+        <div>
+            <form onSubmit={handleSubmit} className="flex flex-col w- gap-5 items-center">
 
-            <h2 className="text-4xl font-bold mb-10 text-white">Login</h2>
+                <h2 className="text-4xl font-bold mb-10 text-purple-700">Login</h2>
 
-            <input
-                type="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-72 p-3 bg-white text-black"
-            />
+                <input
+                    type="email"
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-72 p-3 bg-white text-purple-700"
+                />
 
-            <input
-                type="password"
-                placeholder="Senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
-                className="w-72 p-3 bg-white text-black"
-            />
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    className="w-72 p-3 bg-white text-purple-700"
+                />
 
-            <button className="bg-black text-red-500 px-10 py-3 rounded-full">
-                Entrar
-            </button>
+                <button className='flex bg-purple-700 text-white px-10 py-3 rounded'>
+                    Entrar
+                </button>
 
-            <p className="text-white">
-                Não tem conta?{' '}
-                <span onClick={() => navigate('/cadastro')} className="text-red-500 cursor-pointer">
-                    Criar conta
-                </span>
-            </p>
+                <p className="text-purple-500">
+                    Não tem conta?{' '}
+                    <span onClick={() => navigate('/cadastro')} className="text-purple-700 cursor-pointer">
+                        Criar conta
+                    </span>
+                </p>
 
-        </form>
+            </form>
+        </div>
     );
 }
 

@@ -1,9 +1,9 @@
 function CadastroNavbar(){
     return(
-        <header className="flex items-center justify-between bg-[050505] px-6 py-4 border-b border-[#050505] text-white">
+        <header className="flex items-center justify-between bg-blue-300 px-6 py-4 border-b text-white">
            
             <div className="flex items-center gap-3">
-               <p>img</p>
+               <h2 className='font-semibold text-3xl'>Biblio<span className='text-purple-600'>verso</span></h2>
             </div>
 
              <nav className="flex gap-6 text-sm"> 

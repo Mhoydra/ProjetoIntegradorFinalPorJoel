@@ -43,27 +43,27 @@ function CadastroForms() {
     }
 
     return (
-        <div className="text-center">
+        <div className="justify-center items-center">
 
-            <h2 className="text-4xl font-bold mb-10 text-white">
+            <h2 className="text-4xl font-bold mb-10 text-purple-700">
                 Realizar cadastro
             </h2>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
 
-                <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" className="w-72 p-3 bg-white text-black" />
+                <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" className="w-72 p-3 bg-white text-purple-800" />
 
-                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-72 p-3 bg-white text-black" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-72 p-3 bg-white text-purple-800" />
 
-                <input value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Senha" className="w-72 p-3 bg-white text-black" />
+                <input value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Senha" className="w-72 p-3 bg-white text-purple-800" />
 
-                <button className="bg-black text-red-500 px-10 py-3 rounded">
+                <button className="bg-purple-800 text-white px-10 py-3 rounded">
                     Cadastrar
                 </button>
 
-                <p className="text-white">
+                <p className="text-purple-500">
                     Já tem conta?{' '}
-                    <span onClick={() => navigate('/login')} className="text-red-500 cursor-pointer">
+                    <span onClick={() => navigate('/login')} className="text-purple-700 cursor-pointer">
                         Login
                     </span>
                 </p>
