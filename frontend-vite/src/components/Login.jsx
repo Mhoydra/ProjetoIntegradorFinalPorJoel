@@ -1,0 +1,16 @@
+import LoginNavbar from './loginComponents/LoginNavbar'
+import LoginForms from './loginComponents/LoginForms'
+
+
+function Login() {
+  return(
+    <body className='bg-blue-100 justify-center items-center'>
+      <LoginNavbar/>
+      <main className='flex items-center justify-center py-50'>
+        <LoginForms/>
+      </main>
+    </body>
+  )
+}
+
+export default Login
