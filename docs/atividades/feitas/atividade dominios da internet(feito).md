@@ -11,18 +11,18 @@ Um cliente misturou vários termos e pediu ajuda para entender o que cada coisa 
 Diferenciar **domínio**, **URL**, **endereço IP**, **hospedagem**, **site/aplicação**.
 
 ## Passo a passo
-1. Leia todos os itens da lista.
-2. Classifique cada item em uma categoria.
+1. Leia todos os itens da lista.(ok)
+2. Classifique cada item em uma categoria.(feito)
 
 ## Lista para classificar
 | Item | Classificação |
 |---|---|
-| `exemplo.com.br` |  |
-| `https://www.exemplo.com.br/produtos?categoria=web` |  |
-| `203.0.113.10` |  |
-| GitHub Pages |  |
-| Página inicial do sistema de agendamento |  |
-| `api.projeto.com.br` |  |
+| `exemplo.com.br` | dominio |
+| `https://www.exemplo.com.br/produtos?categoria=web` | url |
+| `203.0.113.10` | endereço ip |
+| GitHub Pages | hospedagem |
+| Página inicial do sistema de agendamento | api |
+| `api.projeto.com.br` | dominio |
 
 ---
 
@@ -38,24 +38,24 @@ O domínio é apenas uma parte da URL. Nesta atividade, você vai separar as par
 Identificar protocolo, subdomínio, nome registrado, extensão, porta, caminho e parâmetros.
 
 ## Passo a passo
-1. Leia cada URL.
-2. Preencha a tabela separando as partes.
-3. Quando uma parte não existir, escreva `não aparece`.
-4. Na última coluna, escreva qual parte você considera o domínio.
+1. Leia cada URL. (lerei)
+2. Preencha a tabela separando as partes. (feito)
+3. Quando uma parte não existir, escreva `não aparece`. (tudo bem)
+4. Na última coluna, escreva qual parte você considera o domínio. (ta?)
 
 ## URLs para analisar
 1. `https://api.exemplo.com.br:443/usuarios?ativo=true`
-2. `https://www.projeto.com.br`
+2. `https://www.exemplo.com.br`
 3. `http://localhost:3000/api/status`
 4. `https://painel.sistemaescolar.dev/alunos?page=2&ordem=nome`
 
 ## Tabela de resposta
 | URL | Protocolo | Subdomínio | Domínio | Extensão | Porta | Caminho | Parâmetros |
 |---|---|---|---|---|---|---|---|
-| 1 |  |  |  |  |  |  |  |
-| 2 |  |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |  |
-| 4 |  |  |  |  |  |  |  |
+| 1 | https:// | api | exemplo | com.br | 443 | /usuarios | ?ativo=true |
+| 2 | https:// | www | exemplo | com.br | não aparece | não aparece | não aparece |
+| 3 | http:// | localhost | não aparece | não aparece | 3000 | /api/status | não aparece |
+| 4 | https:// | painel | sistemaescolar | dev | não aparece | /alunos | ?page=2&ordem=nome |
 
 ## Exemplo de preenchimento
 > Exemplo fictício.

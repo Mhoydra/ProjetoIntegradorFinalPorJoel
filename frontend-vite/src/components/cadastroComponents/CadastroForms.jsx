@@ -5,9 +5,9 @@ function CadastroForms() {
 
     const navigate = useNavigate();
 
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+    const [nomeUsuario, setNome] = useState('');
+    const [emailUsuario, setEmail] = useState('');
+    const [senhaUsuario, setSenha] = useState('');
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -21,9 +21,9 @@ function CadastroForms() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        nome,
-                        email,
-                        senha
+                        nomeUsuario,
+                        emailUsuario,
+                        senhaUsuario
                     })
                 }
             );
@@ -51,11 +51,17 @@ function CadastroForms() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
 
-                <input value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" className="w-72 p-3 bg-white text-purple-800" />
+                <input value={nomeUsuario} onChange={
+                    (e) => setNome(e.target.value)
+                } placeholder="Nome" className="w-72 p-3 bg-white text-purple-800" />
 
-                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="w-72 p-3 bg-white text-purple-800" />
+                <input value={emailUsuario} onChange={
+                    (e) => setEmail(e.target.value)
+                } placeholder="Email" className="w-72 p-3 bg-white text-purple-800" />
 
-                <input value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Senha" className="w-72 p-3 bg-white text-purple-800" />
+                <input value={senhaUsuario} onChange={
+                    (e) => setSenha(e.target.value)
+                } placeholder="Senha" className="w-72 p-3 bg-white text-purple-800" />
 
                 <button className="bg-purple-800 text-white px-10 py-3 rounded">
                     Cadastrar
