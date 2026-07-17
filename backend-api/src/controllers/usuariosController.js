@@ -90,7 +90,7 @@ async function atualizarUsuario(req, res) {
         const { nomeUsuario, emailUsuario } = req.body;
 
         const [resultado] = await conexao.query(
-            'UPDATE usuarios SET nome = ?, email = ? WHERE id = ?',
+            'UPDATE usuarios SET nomeUsuario = ?, emailUsuario = ? WHERE idUsuario = ?',
             [nomeUsuario, emailUsuario, idUsuario]
         );
 
@@ -118,7 +118,7 @@ async function removerUsuario(req, res) {
         const { idUsuario } = req.params;
 
         const [resultado] = await conexao.query(
-            'DELETE FROM usuarios WHERE id = ?',
+            'DELETE FROM usuarios WHERE idUsuario = ?',
             [idUsuario]
         );
 

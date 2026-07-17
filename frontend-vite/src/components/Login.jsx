@@ -2,7 +2,7 @@ import LoginNavbar from './loginComponents/LoginNavbar'
 import LoginForms from './loginComponents/LoginForms'
 
 
-function Login() {
+export default function Login() {
   return(
     <div>
       <LoginNavbar/>
@@ -12,5 +12,3 @@ function Login() {
     </div>
   )
 }
-
-export default Login
