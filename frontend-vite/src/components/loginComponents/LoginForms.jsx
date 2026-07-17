@@ -11,6 +11,10 @@ export default function LoginForms() {
                 value={emailUsuario}
                 onChange={(e) => setEmail(e.target.value)}
             />
+            <input
+                value={senhaUsuario}
+                onChange={(e) => setSenha(e.target.value)}
+            />
         </div>
     );
 }
