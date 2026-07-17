@@ -1,4 +1,6 @@
-export default function CadastroNavbar(){
+export default function HomeNavbar() {
+    
+
     return(
         <nav className="flex items-center bg-blue-300 justify-between ">
             <div className='flex justify-between m-5'>

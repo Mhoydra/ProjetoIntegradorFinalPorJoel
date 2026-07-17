@@ -53,15 +53,15 @@ function CadastroForms() {
 
                 <input value={nomeUsuario} onChange={
                     (e) => setNome(e.target.value)
-                } placeholder="Nome" className="w-72 p-3 bg-white text-purple-800" />
+                } placeholder="Nome" className="w-72 p-3 shadow-inner shadow-gray-300 bg-gray-50 text-purple-700" />
 
                 <input value={emailUsuario} onChange={
                     (e) => setEmail(e.target.value)
-                } placeholder="Email" className="w-72 p-3 bg-white text-purple-800" />
+                } placeholder="Email" className="w-72 p-3 shadow-inner shadow-gray-300 bg-gray-50 text-purple-700" />
 
                 <input value={senhaUsuario} onChange={
                     (e) => setSenha(e.target.value)
-                } placeholder="Senha" className="w-72 p-3 bg-white text-purple-800" />
+                } placeholder="Senha" className="w-72 p-3 shadow-inner shadow-gray-300 bg-gray-50 text-purple-700" />
 
                 <button className="bg-purple-800 text-white px-10 py-3 rounded">
                     Cadastrar

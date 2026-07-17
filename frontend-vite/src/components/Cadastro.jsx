@@ -2,10 +2,10 @@ import CadastroNavbar from './cadastroComponents/CadastroNavbar'
 import CadastroForms from './cadastroComponents/CadastroForms'
 
 
-function Cadastro() {
+export default function Cadastro() {
   return(
-    <div className='bg-blue-100'>
-      <div className='bg-blue-100 justify-center items-center'>
+    <div>
+      <div className='bg-white justify-center items-center'>
         <CadastroNavbar/>
         <main className='flex justify-center py-50'>
           <CadastroForms/>
@@ -15,5 +15,3 @@ function Cadastro() {
 
   )
 }
-
-export default Cadastro
