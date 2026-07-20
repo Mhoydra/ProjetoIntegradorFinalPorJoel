@@ -5,16 +5,25 @@ function LandingPage() {
   const navigate = useNavigate()
 
   return (
-    <div className='bg-blue-100'>
-      <nav className='bg-blue-300'>
-        <div className='flex justify-between items-center p-5'>
-          <h1 className='font-semibold text-3xl'>Biblio<span className='text-purple-600'>verso</span></h1>
-          <button onClick={() => navigate('/login')}
-          className='flex bg-purple-500 text-white px-6 py-3 rounded-2xl'>Fazer Login</button>
-        </div>
-      </nav>
-    </div>
+      <nav className="flex items-center bg-blue-300 justify-between">
+          <div className='m-5'>
+            <h2 className='font-semibold text-3xl text-white'>
+              Biblio
+              <span className='text-purple-600'>
+                verso
+              </span>
+            </h2>
+          </div>
+          <div>
+            <button onClick={() => navigate('/login')}
+            className='flex bg-purple-500 text-white px-6 py-3 rounded-2xl'>
+              Fazer Login
+            </button>
+          </div>
+    </nav>
   );
 };
 
 export default LandingPage;
+
+       
