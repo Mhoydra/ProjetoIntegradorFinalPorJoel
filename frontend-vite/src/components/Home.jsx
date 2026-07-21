@@ -1,7 +1,7 @@
 //Artistas
-import sertanejo from "../assets/imgArtists/sertanejo.webp";
+import sertanejo from "../assets/imgArtists/moca.webp";
 import justin from "../assets/imgArtists/justin.webp";
-import roberto from "../assets/imgArtists/robertoCarlos.avif";
+import michael from "../assets/imgArtists/michael.jpg";
 import canator from "../assets/imgArtists/canator.jpg"
 //Albums
 import prisma from "../assets/imgAlbuns/prisma.webp";
@@ -13,34 +13,25 @@ export default function Home() {
 
     const artistsData = [
         {
-            name: "Música 1",
-            image: sertanejo
+            id: 1,
+            name: "Marilia Mendonça",
+            image: sertanejo,
+            music: "../musics/mariliaDuvidosa.mp3"
         },
         {
-            name: "Música 2",
-            image: justin
+            id: 2,
+            name: "Justin bieber",
+            image: justin,
+            music: "../musics/justinBieberDuvidoso"
         },
         {
-            name: "Música 3",
-            image: roberto
+            id: 3,
+            name: "Michael jackson",
+            image: michael,
+            music: "../musics/michaelJackeson"
         },
         {
-            name: "Musica 4",
-            image: canator
-        },
-        {
-            name: "Música 1",
-            image: sertanejo
-        },
-        {
-            name: "Música 2",
-            image: justin
-        },
-        {
-            name: "Música 3",
-            image: roberto
-        },
-        {
+            
             name: "Musica 4",
             image: canator
         }
@@ -83,16 +74,16 @@ export default function Home() {
 
                         <div className="flex gap-2 cursor-pointer">
                             <p className="font-extrabold">O</p>
-                            <p className="text-white">Sua Biblioteca +</p>
+                            <p className="text-white">Sua Biblioteca</p>
                         </div>
 
-                        <div className="flex flex-col gap-1 bg-gray-800 p-3 rounded-2xl">
+                        <div className="flex flex-col gap-3 bg-gray-800 p-3 rounded-2xl">
                             <h5 className="font-bold">Crie sua Primeira Playlist</h5>
                             <p className=""> É Facil, vamos te ajudar</p>
                             <button className="bg-white text-black p-2 rounded-2xl border-none">Criar Playlist</button>
                         </div>
 
-                        <div className="flex flex-col gap-2 bg-gray-800 p-3 rounded-2xl">
+                        <div className="flex flex-col gap-3 bg-gray-800 p-3 rounded-2xl">
                             <h5 className="font-bold">Que tal seguir um podcast?</h5>
                             <p className="">Avisaremos voçê sobre nossos episódeos</p>
                             <button className="bg-white text-black p-2 rounded-2xl border-none">Explore Podcast</button>
