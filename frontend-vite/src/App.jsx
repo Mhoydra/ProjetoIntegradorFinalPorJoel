@@ -4,6 +4,7 @@ import Login from './components/Login.jsx'
 import LandingPage from './components/LandingPage.jsx'
 import Cadastro from './components/Cadastro.jsx'
 import Home from './components/Home.jsx'
+import Musica from './components/Pages/Musica.jsx'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/home" element={<Home/>}/>
+      <Route path='/musica/:id' element={<Musica />}/>
     </Routes>
   )
 }

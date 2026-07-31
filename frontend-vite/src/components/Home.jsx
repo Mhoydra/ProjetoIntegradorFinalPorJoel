@@ -1,42 +1,13 @@
-//Artistas
-import sertanejo from "../assets/imgArtists/moca.webp";
-import justin from "../assets/imgArtists/justin.webp";
-import michael from "../assets/imgArtists/michael.jpg";
-import canator from "../assets/imgArtists/canator.jpg"
-//Albums
+import { Link } from "react-router-dom";
+import { musicas } from "../data/musicas";
+import Card from "./Card";
+
 import prisma from "../assets/imgAlbuns/prisma.webp";
 import nene from "../assets/imgAlbuns/nene.jpg";
 import mundo from "../assets/imgAlbuns/mundo.jpg";
 import tango from "../assets/imgAlbuns/tango.jpg";
 
 export default function Home() {
-
-    const artistsData = [
-        {
-            id: 1,
-            name: "Marilia Mendonça",
-            image: sertanejo,
-            music: "../musics/mariliaDuvidosa.mp3"
-        },
-        {
-            id: 2,
-            name: "Justin bieber",
-            image: justin,
-            music: "../musics/justinBieberDuvidoso"
-        },
-        {
-            id: 3,
-            name: "Michael jackson",
-            image: michael,
-            music: "../musics/michaelJackeson"
-        },
-        {
-            
-            name: "Musica 4",
-            image: canator
-        }
-    ];
-
     const albunsData = [
             {
                 name: "Albun 1",
@@ -118,25 +89,11 @@ export default function Home() {
                             </h2>
 
                             <div className="artists-grid grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
-                                {artistsData.map((artist, index) => (
-                                    <div
-                                        key={index}
-                                        className="flex flex-col justify-evenly artist-card bg-gray-900 cursor-pointer transition-colors duration-300 hover:bg-gray-800 p-4 rounded-lg"
-                                    >
-                                        <img
-                                            src={artist.image}
-                                            alt={`Imagem do ${artist.name}`}
-                                            className="w-full rounded-full mb-3"
-                                        />
-
-                                        <h3 className="font-bold text-[12px] mt-2">
-                                            {artist.name}
-                                        </h3>
-
-                                        <p className="text-[10px] text-gray-400">
-                                            Artista
-                                        </p>
-                                    </div>
+                                {musicas.map((musica) => (
+                                    <Card
+                                        key={musica.id}
+                                        musica={musica}
+                                    />
                                 ))}
                             </div>
 
