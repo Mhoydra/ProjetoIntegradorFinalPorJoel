@@ -29,7 +29,7 @@ export default function LoginForms() {
             if (resposta.ok) {
                 localStorage.setItem('token', dados.token);
                 localStorage.setItem('usuario', JSON.stringify(dados.usuarios));
-                navigate('/landingPage');
+                navigate('/home');
             } else {
                 alert(dados.mensagem);
             }

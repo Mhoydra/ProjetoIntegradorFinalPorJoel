@@ -1,3 +1,6 @@
+import { useParams } from "react-router-dom"
+import { musicas } from "../../data/musicas"
+ 
 export default function Musica() {
 
     const { id } = useParams();
