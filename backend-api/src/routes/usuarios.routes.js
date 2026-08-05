@@ -12,9 +12,9 @@ removerUsuario
 } = require('../controllers/usuariosController');
 
 router.get('/', autenticarToken, listarUsuarios);
-router.get('/:id', autenticarToken, buscarUsuarioPorId);
+router.get('/:idUsuario', autenticarToken, buscarUsuarioPorId);
 router.post('/', cadastrarUsuario);
-router.put('/:id', autenticarToken, atualizarUsuario);
-router.delete('/:id', autenticarToken, removerUsuario);
+router.put('/:idUsuario', autenticarToken, atualizarUsuario);
+router.delete('/:idUsuario', autenticarToken, removerUsuario);
 
 module.exports = router;

@@ -1,16 +1,14 @@
-function CadastroNavbar(){
+export default function CadastroNavbar(){
     return(
-        <header className="flex items-center justify-between bg-blue-300 px-6 py-4 border-b text-white">
-           
-            <div className="flex items-center gap-3">
-               <h2 className='font-semibold text-3xl'>Biblio<span className='text-purple-600'>verso</span></h2>
+        <nav className="flex items-center bg-blue-300 justify-between ">
+            <div className='flex justify-between m-5'>
+                <h2 className='font-semibold text-3xl text-white'>
+                    Biblio
+                    <span className='text-purple-600'>
+                        verso
+                    </span>
+                </h2>
             </div>
-
-             <nav className="flex gap-6 text-sm"> 
-                <a href="">Ajuda</a>
-                <a href="">Início</a>
-            </nav>
-        </header>
+        </nav>
     )
 }
-export default CadastroNavbar       
