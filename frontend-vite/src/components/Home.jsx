@@ -34,8 +34,8 @@ export default function Home() {
     ];
 
         return(
-            <div>
-                <div className="flex max-sm:flex-col h-screen bg-black text-white font-sans">
+            <div className="bg-black min-h-screen">
+                <div className="flex max-md:flex-col h-screen bg-black text-white font-sans">
                     <nav className=" flex flex-col sm:w-70 bg-gray-900 p-4 pb-10 gap-5">
 
                         <h2 className='font-semibold text-3xl text-white'>
@@ -128,7 +128,6 @@ export default function Home() {
                         </section>
                     </main>
                 </div>
-                
             </div>
         );
     };
