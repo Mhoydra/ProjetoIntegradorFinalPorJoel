@@ -34,7 +34,7 @@ export default function Home() {
     ];
 
         return(
-            <div className="bg-black min-h-screen">
+            <div className="bg-gray-950 min-h-screen">
                 <div className="flex max-md:flex-col h-screen bg-black text-white font-sans">
                     <nav className=" flex flex-col sm:w-70 bg-gray-900 p-4 pb-10 gap-5">
 
@@ -79,7 +79,7 @@ export default function Home() {
                     </nav>
                     <main className="flex-1 md:overflow-auto bg-black p-5">
 
-                        <header className="flex items-center bg-gray-700 px-4 py-2 w-60 rounded-3xl">
+                        <header className="flex items-center bg-gray-800 px-4 py-2 w-60 rounded-3xl">
                             <IoSearch className="font-bold text-2xl items-center justify-center"/>
                             <input className="bg-transparent border-none text-white ml-2 outline-none" type="text" placeholder="Oque deseja ouvir?"/>
                         </header>
