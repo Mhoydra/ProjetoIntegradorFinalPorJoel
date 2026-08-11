@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom'
+import Seccao from './LandingPageComponentes/Seccao';
+import cores from '../assets/imgAlbuns/cores.jpg';
 
 function LandingPage() {
   const navigate = useNavigate()
@@ -25,7 +27,21 @@ function LandingPage() {
         </div>
       </nav>
       <main>
-        
+        <Seccao
+          title="O Melhor site de musicas do Brasil"
+          text="Escute musicas de graça e sem anúncios"
+          img={cores}
+        />
+        <Seccao
+          title="Baixe e crie sua biblioteca"
+          text="Voce tem acesso ao nosso acervo de musicas e este pode crescer se você o alimentar com mais musicas"
+          img={cores}
+        />
+        <Seccao
+          title="OI"
+          text="Acima está escrito io"
+          img={cores}
+        />
       </main>
     </body>
   );
