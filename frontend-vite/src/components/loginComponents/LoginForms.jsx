@@ -52,13 +52,13 @@ export default function LoginForms() {
                         emailUsuario
                     } onChange={
                         (e) => setEmail(e.target.value)
-                    } className="w-72 p-3 shadow-inner shadow-gray-300 bg-gray-50 text-purple-700" />
+                    } className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
 
                     <input type="password" placeholder="Senha" value={
                         senhaUsuario
                     } onChange={
                         (e) => setSenha(e.target.value)
-                    } className="w-72 p-3 shadow-inner shadow-gray-300 bg-gray-50 text-purple-700" />
+                    } className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
 
                     <button className='flex bg-purple-700 text-white px-10 py-3 rounded'>
                         Entrar
