@@ -90,8 +90,8 @@ function LandingPage() {
             <img src={cores} alt="" className='w-200 p-0'/>
           </div>
         </section>
-        <footer className='flex justify-center'>
-            <form onSubmit={handleSubmit} className='m-10 flex flex-col gap-5 items-center'>
+        <footer className='flex flex-col justify-center'>
+            <form onSubmit={handleSubmit} className='p-10 bg-gray-900 flex flex-col gap-5 items-center'>
 
                     <h2 className="text-4xl font-bold mb-10 text-purple-700">
                         Login
@@ -122,6 +122,47 @@ function LandingPage() {
                         </span>
                     </p>
                 </form>
+                <div className='flex flex-col'>
+                  <div className='flex text-white gap-10 py-10 justify-center p-'>
+                    <div className='p-5'>
+
+                      <h4 className='text-3xl font-bold'>Informações</h4>
+                      <p className='text-justify'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui vero tenetur explicabo, corporis quia mollitia accusantium.</p>
+
+                    </div>
+                    <div className='flex gap-10 p-5'>
+                      <div>
+
+                        <h4 className='font-bold'>Integrantes</h4>
+                        <p>Elena mendener</p>
+                        <p>Joel miller</p>
+                        <p>Carlos prelo</p>
+
+                      </div>
+                      <div>
+
+                        <h4 className='font-bold'>Company</h4>
+                        <p>About us</p>
+                        <p>Blog</p>
+                        <p>CameraMan?</p>
+
+                      </div>
+                      <div>
+
+                        <h4 className='font-bold'>Social</h4>
+                        <p>Facebook</p>
+                        <p>Instagram</p>
+                        <p>Linkedin</p>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+
+                    <p className=' p-2 bg-gray-800 text-white'>Todo o conteudo presente é protegido por lei do copyright</p>
+
+                  </div>
+                </div>
         </footer>
       </main>
     </div>
