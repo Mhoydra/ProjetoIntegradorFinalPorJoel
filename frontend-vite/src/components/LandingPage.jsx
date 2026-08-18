@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cores from '../assets/imgAlbuns/cores.jpg';
+//import cores from '../assets/imgAlbuns/cores.jpg';
 
 function LandingPage() {
 
@@ -159,7 +160,7 @@ function LandingPage() {
                   </div>
                   <div>
 
-                    <p className=' p-2 bg-gray-800 text-white'>Todo o conteudo presente é protegido por lei do copyright</p>
+                    <p className=' p- bg-gray-800 text-white'>Todo o conteudo presente é protegido por lei do copyright</p>
 
                   </div>
                 </div>
