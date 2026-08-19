@@ -43,7 +43,7 @@ function LandingPage() {
     }
 
   return (
-    <div className='bg-gray-950'>
+    <div className='flex flex-col bg-gray-950 m-0 p-0'>
       <nav className="flex items-center bg-gray-900 justify-between">
         <div className='m-5'>
           <h2 className='font-semibold text-3xl text-white'>
@@ -57,38 +57,38 @@ function LandingPage() {
         <div>
           <button
             onClick={() => navigate('/login')}
-            className='flex bg-purple-500 text-white px-6 py-3 rounded-2xl'
+            className='flex bg-purple-500 text-white px-6 py-3 mx-5 rounded-2xl'
           >
             Fazer Login
           </button>
         </div>
       </nav>
       <main>
-        <section className='flex p-10 gap-10 bg-gray-950'> 
+        <section className='flex flex-col-reverse md:flex-row p-10 gap-10 bg-gray-950'> 
           <div className='flex flex-col gap-5'>
             <h2 className='text-white font-bold text-4xl'>O site mais barato de musicas</h2>
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-200'/>
+            <img src={cores} alt="" className='w-full md:w-[500px]'/>
           </div>
         </section>
-        <section className='flex flex-row-reverse p-10 gap-10 bg-gray-900'> 
+        <section className='flex flex-col-reverse md:flex-row-reverse p-10 gap-10 bg-gray-900'> 
           <div className='flex flex-col gap-5'>
             <h2 className='text-white font-bold text-4xl'>O site mais barato de musicas</h2>
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-200'/>
+            <img src={cores} alt="" className='w-full md:w-[500px]'/>
           </div>
         </section>
-        <section className='flex p-10 gap-10 bg-gray-950'> 
+        <section className='flex flex-col-reverse md:flex-row p-10 gap-10 bg-gray-950'> 
           <div className='flex flex-col gap-5'>
             <h2 className='text-white font-bold text-4xl'>O site mais barato de musicas</h2>
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-200 p-0'/>
+            <img src={cores} alt="" className='w-full md:w-[500px]'/>
           </div>
         </section>
         <footer className='flex flex-col justify-center'>
@@ -123,15 +123,15 @@ function LandingPage() {
                         </span>
                     </p>
                 </form>
-                <div className='flex flex-col'>
-                  <div className='flex text-white gap-10 py-10 justify-center p-'>
-                    <div className='p-5'>
+                <div className='flex flex-col m-0 p-0'>
+                  <div className='flex flex-col md:flex-row md:items-center text-white gap-10 py-10 justify-center'>
+                    <div className='flex flex-col px-5'>
 
                       <h4 className='text-3xl font-bold'>Informações</h4>
                       <p className='text-justify'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui vero tenetur explicabo, corporis quia mollitia accusantium.</p>
 
                     </div>
-                    <div className='flex gap-10 p-5'>
+                    <div className='flex flex-wrap gap-10 p-5'>
                       <div>
 
                         <h4 className='font-bold'>Integrantes</h4>
@@ -158,9 +158,9 @@ function LandingPage() {
                       </div>
                     </div>
                   </div>
-                  <div>
+                  <div className='flex w-full'>
 
-                    <p className=' p- bg-gray-800 text-white'>Todo o conteudo presente é protegido por lei do copyright</p>
+                    <p className='w-full py-3 px-1 text-center bg-gray-800 text-white'>Todo o conteudo presente é protegido por lei do copyright</p>
 
                   </div>
                 </div>
