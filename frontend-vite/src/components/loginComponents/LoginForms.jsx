@@ -42,7 +42,7 @@ export default function LoginForms() {
     } return (
         
             <div>
-                <form onSubmit={handleSubmit} className="flex flex-col w- gap-5 items-center">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center">
 
                     <h2 className="text-4xl font-bold mb-10 text-purple-700">
                         Login
