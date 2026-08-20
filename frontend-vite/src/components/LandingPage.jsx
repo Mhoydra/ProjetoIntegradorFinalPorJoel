@@ -70,7 +70,7 @@ function LandingPage() {
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-full md:w-[500px]'/>
+            <img src={cores} alt="" className='w-full'/>
           </div>
         </section>
         <section className='flex flex-col-reverse md:flex-row-reverse p-10 gap-10 bg-gray-900'> 
@@ -79,7 +79,7 @@ function LandingPage() {
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-full md:w-[500px]'/>
+            <img src={cores} alt="" className='w-full]'/>
           </div>
         </section>
         <section className='flex flex-col-reverse md:flex-row p-10 gap-10 bg-gray-950'> 
@@ -88,7 +88,7 @@ function LandingPage() {
             <p className='text-white text-[20px] text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam neque molestiae quod enim libero modi velit aliquid ea expedita, itaque ratione suscipit! Deserunt amet rerum neque sint repellat eligendi!</p>
           </div>
           <div>
-            <img src={cores} alt="" className='w-full md:w-[500px]'/>
+            <img src={cores} alt="" className='w-full'/>
           </div>
         </section>
         <footer className='flex flex-col justify-center'>
@@ -111,7 +111,7 @@ function LandingPage() {
                     } className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
 
                     <button className='flex bg-purple-700 text-white px-10 py-3 rounded'>
-                        Entrar
+                        Seja um de nós
                     </button>
 
                     <p className="text-purple-400">
