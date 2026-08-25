@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { LuBookMarked } from "react-icons/lu";
@@ -8,6 +9,7 @@ import prisma from "../assets/imgAlbuns/prisma.webp";
 import nene from "../assets/imgAlbuns/nene.jpg";
 import mundo from "../assets/imgAlbuns/mundo.jpg";
 import tango from "../assets/imgAlbuns/tango.jpg";
+
 
 export default function Home() {
     const albunsData = [
