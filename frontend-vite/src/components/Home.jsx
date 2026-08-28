@@ -34,6 +34,11 @@ export default function Home() {
                 image: tango    
             }
     ];
+    
+    const [pesquisa, setPesquisa] = useState("");
+    const musicasFiltradas = musicas.filter((musica) => 
+        musica.nome.toLowerCase().includes(pesquisa.toLowerCase())
+    );
 
         return(
             <div className="bg-gray-950 min-h-screen">
@@ -83,7 +88,13 @@ export default function Home() {
 
                         <header className="flex items-center bg-gray-800 px-4 py-2 w-60 rounded-3xl">
                             <IoSearch className="font-bold text-2xl items-center justify-center"/>
-                            <input className="bg-transparent border-none text-white ml-2 outline-none" type="text" placeholder="Oque deseja ouvir?"/>
+                            <input 
+                                className="bg-transparent border-none text-white ml-2 outline-none" 
+                                type="text" 
+                                placeholder="Oque deseja ouvir?"
+                                value={pesquisa}
+                                onChange={(e) => setPesquisa(e.target.value)}
+                            />
                         </header>
 
                         <section className="p-6">
@@ -93,7 +104,7 @@ export default function Home() {
                             </h2>
 
                             <div className="artists-grid grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
-                                {musicas.map((musica) => (
+                                {musicasFiltradas.map((musica) => (
                                     <Card
                                         key={musica.id}
                                         musica={musica}
