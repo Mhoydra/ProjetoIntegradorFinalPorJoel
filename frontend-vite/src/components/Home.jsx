@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { IoSearch } from "react-icons/io5";
+import { LuBookMarked } from "react-icons/lu";
 import { musicas } from "../data/musicas";
 import Card from "./Card";
 
@@ -6,6 +9,7 @@ import prisma from "../assets/imgAlbuns/prisma.webp";
 import nene from "../assets/imgAlbuns/nene.jpg";
 import mundo from "../assets/imgAlbuns/mundo.jpg";
 import tango from "../assets/imgAlbuns/tango.jpg";
+
 
 export default function Home() {
     const albunsData = [
@@ -30,11 +34,16 @@ export default function Home() {
                 image: tango    
             }
     ];
+    
+    const [pesquisa, setPesquisa] = useState("");
+    const musicasFiltradas = musicas.filter((musica) => 
+        musica.nome.toLowerCase().includes(pesquisa.toLowerCase())
+    );
 
         return(
-            <div>
-                <div className="flex h-screen bg-black text-white font-sans">
-                    <nav className=" flex flex-col w-70 bg-gray-900 p-4 pb-10 gap-5">
+            <div className="bg-gray-950 min-h-screen">
+                <div className="flex max-md:flex-col h-screen bg-black text-white font-sans">
+                    <nav className=" flex flex-col sm:w-70 bg-gray-900 p-4 pb-10 gap-5">
 
                         <h2 className='font-semibold text-3xl text-white'>
                             Biblio
@@ -44,7 +53,7 @@ export default function Home() {
                         </h2>
 
                         <div className="flex gap-2 cursor-pointer">
-                            <p className="font-extrabold">O</p>
+                            <LuBookMarked className="font-extrabold"/>
                             <p className="text-white">Sua Biblioteca</p>
                         </div>
 
@@ -75,11 +84,17 @@ export default function Home() {
                         </button>
 
                     </nav>
-                    <main className="flex-1 overflow-auto p-5">
+                    <main className="flex-1 md:overflow-auto bg-black p-5">
 
-                        <header className="flex items-center bg-gray-700 px-4 py-2 w-60 rounded-3xl">
-                            <p className="font-bold text-2xl items-center justify-center">O</p>
-                            <input className="bg-transparent border-none text-white ml-2 outline-none" type="text" placeholder="Oque deseja ouvir?"/>
+                        <header className="flex items-center bg-gray-800 px-4 py-2 w-60 rounded-3xl">
+                            <IoSearch className="font-bold text-2xl items-center justify-center"/>
+                            <input 
+                                className="bg-transparent border-none text-white ml-2 outline-none" 
+                                type="text" 
+                                placeholder="Oque deseja ouvir?"
+                                value={pesquisa}
+                                onChange={(e) => setPesquisa(e.target.value)}
+                            />
                         </header>
 
                         <section className="p-6">
@@ -89,7 +104,7 @@ export default function Home() {
                             </h2>
 
                             <div className="artists-grid grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
-                                {musicas.map((musica) => (
+                                {musicasFiltradas.map((musica) => (
                                     <Card
                                         key={musica.id}
                                         musica={musica}
@@ -125,13 +140,6 @@ export default function Home() {
                             </div>
                         </section>
                     </main>
-                </div>
-                <div className="flex justify-between items-center fixed p-2 bottom-0 right-0 left-0 bg-gradient-to-r from-purple-600 to-blue-600">
-                    <div className="">
-                        <h2 className="text-white font-bold text-[14px]">Test nosso plano Premium de graça</h2>
-                        <p className="text-white text-[10px]">Increva-se para curtir músicas ilimitadas e podcasts sem anúncios. Não precisa de cartão de crédito.</p>
-                    </div>
-                    <button className="text-black bg-white px-4 py-2 font-bold text-[12px] border-none rounded-2xl">Escreva-se Gratis</button>
                 </div>
             </div>
         );

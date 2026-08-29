@@ -1,42 +1,42 @@
-// Artistas
-import sertanejo from "../assets/imgArtists/moca.webp";
-import justin from "../assets/imgArtists/justin.webp";
-import michael from "../assets/imgArtists/michael.jpg";
-import canator from "../assets/imgArtists/canator.jpg";
+// Imagens
+import YarararaImg from "../assets/imgArtists/Yararara.jpg";
+import CelulasEmbrionariasMortasImg from "../assets/imgArtists/CelulasEmbrionariasMortas.jpg";
+import BillieJamImg from "../assets/imgArtists/BillieJam.jpg";
+import funhouseImg from "../assets/imgArtists/Funhouse.webp";
 
 // Músicas
-import mariliaMusic from "../assets/musics/mariliaDuvidosa.mp3";
-import justinMusic from "../assets/musics/justinBieberDuvidoso.mp3";
-import michaelMusic from "../assets/musics/michaelJackson.mp3";
-import canatorMusic from "../assets/musics/canator.mp3";
+import YarararaMusic from "../assets/musics/Yararara.mp3";
+import CelulasEmbrionariasMortasMusic from "../assets/musics/CelulasEmbrionariasMortas.mp3";
+import BillieJamMusic from "../assets/musics/BillieJam.mp3";
+import funhouseMusic from "../assets/musics/Funhouse.mp3"; 
 
 export const musicas = [
   {
     id: 1,
-    nome: "Marília Mendonça",
-    artista: "Marília Mendonça",
-    imagem: sertanejo,
-    audio: mariliaMusic,
+    nome: "YARARARA",
+    artista: "Desconhecido",
+    imagem: YarararaImg,
+    audio: YarararaMusic,
   },
   {
     id: 2,
-    nome: "Stay",
-    artista: "Justin Bieber",
-    imagem: justin,
-    audio: justinMusic,
+    nome: "Dead Embrionic Cells",
+    artista: "Sepultura",
+    imagem: CelulasEmbrionariasMortasImg,
+    audio: CelulasEmbrionariasMortasMusic,
   },
   {
     id: 3,
     nome: "Billie Jean",
     artista: "Michael Jackson",
-    imagem: michael,
-    audio: michaelMusic,
+    imagem: BillieJamImg,
+    audio: BillieJamMusic,
   },
   {
     id: 4,
-    nome: "Canator",
-    artista: "Canator",
-    imagem: canator,
-    audio: canatorMusic,
+    nome: "Fun House",
+    artista: "Geometry Dash",
+    imagem: funhouseImg,
+    audio: funhouseMusic,
   },
 ];
