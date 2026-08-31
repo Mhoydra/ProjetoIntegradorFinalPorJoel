@@ -20,7 +20,7 @@ export default function Musica() {
             <button className="text-white text-2xl m-5  hover:text-gray-500" onClick={ () => navigate(-1)}>
                 <IoMdArrowRoundBack/>
             </button>
-            <div className="min-h-screen flex flex-col justify-center items-center text-white">
+            <div className="min-h-screen flex flex-col min-w-0 justify-center items-center text-white">
 
                 <img
                     src={musica.imagem}
@@ -28,11 +28,11 @@ export default function Musica() {
                     className="w-80 rounded-xl shadow-lg"
                 />
 
-                <h1 className="text-4xl font-bold mt-6">
+                <h1 className="text-4xl font-bold mt-6 w-80 truncate">
                     {musica.nome}
                 </h1>
 
-                <p className="text-gray-400 text-xl mb-6">
+                <p className="block w-full min-w-0 overflow-hidden whitespace-nowrap text-ellipsis text-xs text-gray-400">
                     {musica.artista}
                 </p>
 

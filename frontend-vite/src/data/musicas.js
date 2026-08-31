@@ -14,14 +14,14 @@ export const musicas = [
   {
     id: 1,
     nome: "YARARARA",
-    artista: "Desconhecido",
+    artista: "AnythingBecomeMoe & TEKOKITO",
     imagem: YarararaImg,
     audio: YarararaMusic,
   },
   {
     id: 2,
     nome: "Dead Embrionic Cells",
-    artista: "Sepultura",
+    artista: "sajdhskaakkjahdkjasfsfsfsfsdfsdfsddfdglkdfjgldkgjlkdjgdlk",
     imagem: CelulasEmbrionariasMortasImg,
     audio: CelulasEmbrionariasMortasMusic,
   },
