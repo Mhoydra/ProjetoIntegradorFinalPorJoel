@@ -1,26 +1,72 @@
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { musicas } from "../../data/musicas"
+
+import { musicas } from "../../data/musicas";
+
 import { useNavigate, useParams } from "react-router-dom";
- 
+
 export default function Musica() {
 
     const navigate = useNavigate();
+
     const { id } = useParams();
 
     const musica = musicas.find(
-        (m) => m.id === Number(id)
+        m => m.id === Number(id)
     );
 
+    // Se não for uma música local,
+    // vamos tratar o ID como um vídeo do YouTube
     if (!musica) {
-        return <h1>Música não encontrada.</h1>;
+
+        const videoId = id;
+
+        return (
+
+            <div className="bg-black min-h-screen text-white">
+
+                <button
+                    className="text-white text-2xl m-5 hover:text-gray-500"
+                    onClick={() => navigate(-1)}
+                >
+                    <IoMdArrowRoundBack />
+                </button>
+
+                <div className="min-h-screen flex flex-col text-center gap-4 justify-center items-center">
+
+                    <div className="w-full max-w-4xl aspect-video">
+
+                        <iframe
+                            className="w-full h-full rounded-xl"
+                            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        );
+
     }
 
+    // Música local
+
     return (
-        <div className="bg-black">
-            <button className="text-white text-2xl m-5  hover:text-gray-500" onClick={ () => navigate(-1)}>
-                <IoMdArrowRoundBack/>
+
+        <div className="bg-black min-h-screen">
+
+            <button
+                className="text-white text-2xl m-5 hover:text-gray-500"
+                onClick={() => navigate(-1)}
+            >
+                <IoMdArrowRoundBack />
             </button>
-            <div className="min-h-screen flex flex-col min-w-0 justify-center items-center text-white">
+
+            <div className="min-h-screen flex flex-col text-center gap-2 justify-center items-center text-white">
 
                 <img
                     src={musica.imagem}
@@ -32,7 +78,7 @@ export default function Musica() {
                     {musica.nome}
                 </h1>
 
-                <p className="block w-full min-w-0 overflow-hidden whitespace-nowrap text-ellipsis text-xs text-gray-400">
+                <p className="text-xs text-gray-400">
                     {musica.artista}
                 </p>
 
@@ -40,11 +86,12 @@ export default function Musica() {
                     controls
                     src={musica.audio}
                     className="w-96"
+                    autoPlay
                 />
 
             </div>
+
         </div>
 
     );
-
 }

@@ -1,3 +1,5 @@
+import { buscarVideos } from "../services/youtube";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
@@ -36,9 +38,32 @@ export default function Home() {
     ];
     
     const [pesquisa, setPesquisa] = useState("");
+    const [resultados, setResultados] = useState([]);
+    //const [pesquisa, setPesquisa] = useState("");
     const musicasFiltradas = musicas.filter((musica) => 
         musica.nome.toLowerCase().includes(pesquisa.toLowerCase())
     );
+
+    async function pesquisarYouTube() {
+
+    if (!pesquisa.trim()) {
+        return;
+    }
+
+    try {
+
+        const resultados = await buscarVideos(pesquisa);
+
+        console.log(resultados);
+
+        setResultados(resultados);
+
+        } catch (erro) {
+
+            console.error(erro);
+
+        }
+    }
 
         return(
             <div className="bg-gray-950 min-h-screen">
@@ -95,7 +120,33 @@ export default function Home() {
                                 value={pesquisa}
                                 onChange={(e) => setPesquisa(e.target.value)}
                             />
+                            <button
+                                onClick={pesquisarYouTube}
+                                className="text-white"
+                            > Buscar </button>
                         </header>
+                        <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+
+                            {resultados.map((video) => {
+
+                                const musicaYouTube = {
+                                    id: video.id.videoId,
+                                    nome: video.snippet.title,
+                                    artista: video.snippet.channelTitle,
+                                    imagem: video.snippet.thumbnails.medium.url,
+                                    videoId: video.id.videoId
+                                };
+
+                                return (
+                                    <Card
+                                        key={video.id.videoId}
+                                        musica={musicaYouTube}
+                                    />
+                                );
+
+                            })}
+
+                        </div>
 
                         <section className="p-6">
 
