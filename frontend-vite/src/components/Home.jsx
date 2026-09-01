@@ -1,7 +1,5 @@
 import { buscarVideos } from "../services/youtube";
-
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 import { LuBookMarked } from "react-icons/lu";
 import { musicas } from "../data/musicas";
@@ -12,186 +10,407 @@ import nene from "../assets/imgAlbuns/nene.jpg";
 import mundo from "../assets/imgAlbuns/mundo.jpg";
 import tango from "../assets/imgAlbuns/tango.jpg";
 
-
 export default function Home() {
+
     const albunsData = [
-            {
-                name: "Albun 1",
-                artist: "Artista 1",
-                image: prisma
-            },
-            {
-                name: "Albun 2",
-                artist: "Artista 1",
-                image: nene
-            },
-            {
-                name: "Albun 3",
-                artist: "Artista 3",
-                image: mundo    
-            },
-            {
-                name: "Albun 4",
-                artist: "Artista 4",
-                image: tango    
-            }
+        {
+            name: "Álbum 1",
+            artist: "Artista 1",
+            image: prisma
+        },
+        {
+            name: "Álbum 2",
+            artist: "Artista 1",
+            image: nene
+        },
+        {
+            name: "Álbum 3",
+            artist: "Artista 3",
+            image: mundo
+        },
+        {
+            name: "Álbum 4",
+            artist: "Artista 4",
+            image: tango
+        }
     ];
-    
+
     const [pesquisa, setPesquisa] = useState("");
     const [resultados, setResultados] = useState([]);
-    //const [pesquisa, setPesquisa] = useState("");
-    const musicasFiltradas = musicas.filter((musica) => 
-        musica.nome.toLowerCase().includes(pesquisa.toLowerCase())
+    const [carregando, setCarregando] = useState(false);
+    const [erroBusca, setErroBusca] = useState("");
+
+    const musicasFiltradas = musicas.filter((musica) =>
+        musica.nome
+            .toLowerCase()
+            .includes(pesquisa.toLowerCase())
     );
 
     async function pesquisarYouTube() {
 
-    if (!pesquisa.trim()) {
-        return;
-    }
+        if (!pesquisa.trim()) {
+            setResultados([]);
+            return;
+        }
 
-    try {
+        try {
 
-        const resultados = await buscarVideos(pesquisa);
+            setCarregando(true);
+            setErroBusca("");
 
-        console.log(resultados);
+            const resultadosYouTube = await buscarVideos(pesquisa);
 
-        setResultados(resultados);
+            setResultados(resultadosYouTube);
 
         } catch (erro) {
 
             console.error(erro);
+            setErroBusca("Não foi possível realizar a busca.");
+
+        } finally {
+
+            setCarregando(false);
 
         }
     }
 
-        return(
-            <div className="bg-gray-950 min-h-screen">
-                <div className="flex max-md:flex-col h-screen bg-black text-white font-sans">
-                    <nav className=" flex flex-col sm:w-70 bg-gray-900 p-4 pb-10 gap-5">
+    function handleSubmit(e) {
 
-                        <h2 className='font-semibold text-3xl text-white'>
-                            Biblio
-                            <span className='text-purple-600'>
-                                verso
-                            </span>
-                        </h2>
+        e.preventDefault();
+        pesquisarYouTube();
 
-                        <div className="flex gap-2 cursor-pointer">
-                            <LuBookMarked className="font-extrabold"/>
-                            <p className="text-white">Sua Biblioteca</p>
-                        </div>
+    }
 
-                        <div className="flex flex-col gap-3 bg-gray-800 p-3 rounded-2xl">
-                            <h5 className="font-bold">Crie sua Primeira Playlist</h5>
-                            <p className=""> É Facil, vamos te ajudar</p>
-                            <button className="bg-white text-black p-2 rounded-2xl border-none">Criar Playlist</button>
-                        </div>
+    return (
 
-                        <div className="flex flex-col gap-3 bg-gray-800 p-3 rounded-2xl">
-                            <h5 className="font-bold">Que tal seguir um podcast?</h5>
-                            <p className="">Avisaremos voçê sobre nossos episódeos</p>
-                            <button className="bg-white text-black p-2 rounded-2xl border-none">Explore Podcast</button>
-                        </div>
+        <div className="min-h-screen bg-black text-white">
 
-                        <div className="mt-auto">
-                            <a className="text-xs mr-2 mb-1 text-gray-600 no-underline" href="">Legal</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="">Centro de Privacidade</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="">Politica de privacidade</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="">Politica</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="Cokies">Cokies</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="Sobre Anuncios">Sobre Anuncios</a>
-                            <a className="text-xs mr-2 mb-2 text-gray-600 no-underline" href="Acessibilidade">Acessibilidade</a>
-                        </div>
+            <div className="min-h-screen flex flex-col md:flex-row">
 
-                        <button className="bg-transparent p-3 border-2 border-solid border-white rounded-2xl">
-                            <p>PT-BR</p>
+                {/* SIDEBAR */}
+
+                <aside className="md:w-72 md:h-screen md:sticky md:top-0 bg-gray-950 border-b md:border-b-0 md:border-r border-gray-800 p-5 flex flex-col gap-6">
+
+                    {/* LOGO */}
+
+                    <h1 className="font-bold text-3xl">
+                        Biblio
+                        <span className="text-purple-600">
+                            verso
+                        </span>
+                    </h1>
+
+
+                    {/* BIBLIOTECA */}
+
+                    <div className="flex items-center gap-3 text-gray-300 hover:text-white cursor-pointer transition-colors">
+
+                        <LuBookMarked className="text-xl" />
+
+                        <p className="font-semibold">
+                            Sua Biblioteca
+                        </p>
+
+                    </div>
+
+
+                    {/* PLAYLIST */}
+
+                    <div className="bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-3">
+
+                        <h3 className="font-bold">
+                            Crie sua primeira playlist
+                        </h3>
+
+                        <p className="text-sm text-gray-400">
+                            É fácil. Vamos te ajudar.
+                        </p>
+
+                        <button
+                            className="bg-white hover:bg-gray-200 transition-colors text-black px-4 py-2 rounded-full font-semibold"
+                        >
+                            Criar playlist
                         </button>
 
-                    </nav>
-                    <main className="flex-1 md:overflow-auto bg-black p-5">
+                    </div>
 
-                        <header className="flex items-center bg-gray-800 px-4 py-2 w-60 rounded-3xl">
-                            <IoSearch className="font-bold text-2xl items-center justify-center"/>
-                            <input 
-                                className="bg-transparent border-none text-white ml-2 outline-none" 
-                                type="text" 
-                                placeholder="Oque deseja ouvir?"
+
+                    {/* PODCAST */}
+
+                    <div className="bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-3">
+
+                        <h3 className="font-bold">
+                            Que tal seguir um podcast?
+                        </h3>
+
+                        <p className="text-sm text-gray-400">
+                            Avisaremos você sobre novos episódios.
+                        </p>
+
+                        <button
+                            className="bg-white hover:bg-gray-200 transition-colors text-black px-4 py-2 rounded-full font-semibold"
+                        >
+                            Explorar podcasts
+                        </button>
+
+                    </div>
+
+
+                    {/* LINKS */}
+
+                    <div className="hidden md:flex flex-wrap gap-x-3 gap-y-2 mt-auto">
+
+                        <span className="text-xs text-gray-600 cursor-pointer hover:text-gray-400">
+                            Legal
+                        </span>
+
+                        <span className="text-xs text-gray-600 cursor-pointer hover:text-gray-400">
+                            Privacidade
+                        </span>
+
+                        <span className="text-xs text-gray-600 cursor-pointer hover:text-gray-400">
+                            Cookies
+                        </span>
+
+                        <span className="text-xs text-gray-600 cursor-pointer hover:text-gray-400">
+                            Acessibilidade
+                        </span>
+
+                    </div>
+
+
+                    {/* IDIOMA */}
+
+                    <button className="w-fit border border-gray-600 hover:border-white transition-colors px-4 py-2 rounded-full text-sm">
+                        PT-BR
+                    </button>
+
+                </aside>
+
+
+                {/* CONTEÚDO */}
+
+                <main className="flex-1 min-w-0 overflow-y-auto">
+
+                    {/* HEADER */}
+
+                    <header className="sticky top-0 z-20 bg-black/90 backdrop-blur border-b border-gray-900 px-5 py-4">
+
+                        <form
+                            onSubmit={handleSubmit}
+                            className="w-full max-w-2xl flex items-center bg-gray-900 border border-gray-800 rounded-full px-4 py-2 focus-within:border-purple-600 transition-colors"
+                        >
+
+                            <IoSearch className="text-xl text-gray-400 shrink-0" />
+
+                            <input
+                                className="flex-1 min-w-0 bg-transparent border-none text-white ml-3 outline-none placeholder:text-gray-500"
+                                type="text"
+                                placeholder="O que deseja ouvir?"
                                 value={pesquisa}
                                 onChange={(e) => setPesquisa(e.target.value)}
                             />
+
                             <button
-                                onClick={pesquisarYouTube}
-                                className="text-white"
-                            > Buscar </button>
-                        </header>
-                        <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+                                type="submit"
+                                disabled={carregando}
+                                className="ml-2 bg-purple-700 hover:bg-purple-600 disabled:bg-gray-700 transition-colors px-4 py-2 rounded-full text-sm font-semibold shrink-0"
+                            >
+                                {carregando ? "Buscando..." : "Buscar"}
+                            </button>
 
-                            {resultados.map((video) => {
+                        </form>
 
-                                const musicaYouTube = {
-                                    id: video.id.videoId,
-                                    nome: video.snippet.title,
-                                    artista: video.snippet.channelTitle,
-                                    imagem: video.snippet.thumbnails.medium.url,
-                                    videoId: video.id.videoId
-                                };
+                    </header>
 
-                                return (
-                                    <Card
-                                        key={video.id.videoId}
-                                        musica={musicaYouTube}
-                                    />
-                                );
 
-                            })}
+                    <div className="p-5 md:p-8 space-y-12">
 
-                        </div>
 
-                        <section className="p-6">
+                        {/* RESULTADOS YOUTUBE */}
 
-                            <h2 className="text-2xl font-bold mb-4">
-                                Artistas Populares
-                            </h2>
+                        {pesquisa && (
 
-                            <div className="artists-grid grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
-                                {musicasFiltradas.map((musica) => (
-                                    <Card
-                                        key={musica.id}
-                                        musica={musica}
-                                    />
-                                ))}
+                            <section>
+
+                                <div className="flex items-center justify-between mb-5">
+
+                                    <h2 className="text-2xl font-bold">
+                                        Resultados para "{pesquisa}"
+                                    </h2>
+
+                                    {resultados.length > 0 && (
+                                        <span className="text-sm text-gray-500">
+                                            {resultados.length} resultados
+                                        </span>
+                                    )}
+
+                                </div>
+
+
+                                {erroBusca && (
+                                    <p className="text-red-400 mb-4">
+                                        {erroBusca}
+                                    </p>
+                                )}
+
+
+                                {resultados.length > 0 ? (
+
+                                    <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
+
+                                        {resultados.map((video) => {
+
+                                            const musicaYouTube = {
+
+                                                id: video.id.videoId,
+
+                                                nome: video.snippet.title,
+
+                                                artista: video.snippet.channelTitle,
+
+                                                imagem: video.snippet.thumbnails.medium.url,
+
+                                                videoId: video.id.videoId
+
+                                            };
+
+                                            return (
+
+                                                <Card
+                                                    key={video.id.videoId}
+                                                    musica={musicaYouTube}
+                                                />
+
+                                            );
+
+                                        })}
+
+                                    </div>
+
+                                ) : (
+
+                                    !carregando && !erroBusca && (
+
+                                        <p className="text-gray-500">
+                                            Pesquise uma música ou artista no YouTube.
+                                        </p>
+
+                                    )
+
+                                )}
+
+                            </section>
+
+                        )}
+
+
+                        {/* MÚSICAS LOCAIS */}
+
+                        <section>
+
+                            <div className="flex items-center justify-between mb-5">
+
+                                <h2 className="text-2xl font-bold">
+                                    {pesquisa
+                                        ? "Músicas da sua biblioteca"
+                                        : "Músicas populares"
+                                    }
+                                </h2>
+
                             </div>
 
-                            <h2 className="text-2xl font-bold mt-10 mb-4">
-                                Álbuns Populares
+
+                            {musicasFiltradas.length > 0 ? (
+
+                                <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
+
+                                    {musicasFiltradas.map((musica) => (
+
+                                        <Card
+                                            key={musica.id}
+                                            musica={musica}
+                                        />
+
+                                    ))}
+
+                                </div>
+
+                            ) : (
+
+                                <p className="text-gray-500">
+                                    Nenhuma música encontrada na sua biblioteca.
+                                </p>
+
+                            )}
+
+                        </section>
+
+
+                        {/* ÁLBUNS */}
+
+                        <section>
+
+                            <h2 className="text-2xl font-bold mb-5">
+                                Álbuns populares
                             </h2>
 
-                            <div className="albuns-grid grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4">
+                            <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
+
                                 {albunsData.map((album, index) => (
+
                                     <div
                                         key={index}
-                                        className="flex flex-col justify-evenly album-card bg-gray-900 transition-colors duration-300 hover:bg-gray-800 p-4 rounded-lg"
+                                        className="bg-gray-900 border border-gray-800 hover:bg-gray-800 transition-colors p-4 rounded-xl cursor-pointer"
                                     >
+
                                         <img
                                             src={album.image}
                                             alt={`Imagem do ${album.name}`}
-                                            className="rounded-lg"
+                                            className="w-full aspect-square object-cover rounded-lg"
                                         />
 
-                                        <h3 className="font-bold text-[12px] mt-2">
+                                        <h3 className="font-bold text-sm mt-3 truncate">
                                             {album.name}
                                         </h3>
 
-                                        <p className="text-[10px] text-gray-400">
+                                        <p className="text-xs text-gray-400 truncate">
                                             {album.artist}
                                         </p>
+
                                     </div>
+
                                 ))}
+
                             </div>
+
                         </section>
-                    </main>
-                </div>
+
+
+                        {/* ESPAÇO PARA FUTURAS SEÇÕES */}
+
+                        <section>
+
+                            <h2 className="text-2xl font-bold mb-5">
+                                Mais para você
+                            </h2>
+
+                            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
+
+                                <p className="text-gray-500">
+                                    Em breve teremos mais conteúdos personalizados para você.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </main>
+
             </div>
-        );
-    };
+
+        </div>
+    );
+}

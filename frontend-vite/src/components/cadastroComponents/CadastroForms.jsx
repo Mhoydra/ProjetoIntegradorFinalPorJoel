@@ -43,40 +43,59 @@ function CadastroForms() {
     }
 
     return (
-        <div className="justify-center items-center">
+        <div className="w-full max-w-md bg-gray-900 p-10 rounded-2xl shadow-2xl">
 
-            <h2 className="text-4xl font-bold mb-10 text-purple-700">
-                Realizar cadastro
-            </h2>
+    <h2 className="text-4xl font-bold mb-8 text-purple-600 text-center">
+        Realizar cadastro
+    </h2>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
+    <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 items-center"
+    >
 
-                <input value={nomeUsuario} onChange={
-                    (e) => setNome(e.target.value)
-                } placeholder="Nome" className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
+        <input
+            value={nomeUsuario}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Nome"
+            className="w-full p-3 rounded-lg bg-gray-50 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
+        />
 
-                <input value={emailUsuario} onChange={
-                    (e) => setEmail(e.target.value)
-                } placeholder="Email" className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
+        <input
+            value={emailUsuario}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="w-full p-3 rounded-lg bg-gray-50 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
+        />
 
-                <input value={senhaUsuario} onChange={
-                    (e) => setSenha(e.target.value)
-                } placeholder="Senha" className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
+        <input
+            type="password"
+            value={senhaUsuario}
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="Senha"
+            className="w-full p-3 rounded-lg bg-gray-50 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
+        />
 
-                <button className="bg-purple-800 text-white px-10 py-3 rounded">
-                    Cadastrar
-                </button>
+        <button
+            className="w-full bg-purple-800 hover:bg-purple-700 transition-colors text-white px-10 py-3 rounded-lg"
+        >
+            Cadastrar
+        </button>
 
-                <p className="text-purple-500">
-                    Já tem conta?{' '}
-                    <span onClick={() => navigate('/login')} className="text-purple-700 cursor-pointer">
-                        Login
-                    </span>
-                </p>
+        <p className="text-purple-400">
+            Já tem conta?{' '}
 
-            </form>
+            <span
+                onClick={() => navigate('/login')}
+                className="text-purple-600 hover:text-purple-500 cursor-pointer"
+            >
+                Login
+            </span>
+        </p>
 
-        </div>
+    </form>
+
+</div>
     );
 }
 

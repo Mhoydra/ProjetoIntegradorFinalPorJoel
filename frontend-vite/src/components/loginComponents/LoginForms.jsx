@@ -41,39 +41,50 @@ export default function LoginForms() {
 
     } return (
         
-            <div>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center">
+        <form
+            onSubmit={handleSubmit}
+            className="w-full max-w-md flex flex-col gap-5 items-center bg-gray-900 p-10 rounded-2xl shadow-2xl"
+        >
 
-                    <h2 className="text-4xl font-bold mb-10 text-purple-700">
-                        Login
-                    </h2>
+            <h2 className="text-4xl font-bold mb-5 text-purple-600">
+                Login
+            </h2>
 
-                    <input type="email" placeholder="E-mail" value={
-                        emailUsuario
-                    } onChange={
-                        (e) => setEmail(e.target.value)
-                    } className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
+            <input
+                type="email"
+                placeholder="E-mail"
+                value={emailUsuario}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-3 rounded-lg bg-gray-50 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
+            />
 
-                    <input type="password" placeholder="Senha" value={
-                        senhaUsuario
-                    } onChange={
-                        (e) => setSenha(e.target.value)
-                    } className="w-72 p-3 shadow-inner shadow-gray-600 bg-gray-50 text-purple-700" />
+            <input
+                type="password"
+                placeholder="Senha"
+                value={senhaUsuario}
+                onChange={(e) => setSenha(e.target.value)}
+                className="w-full p-3 rounded-lg bg-gray-50 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
+            />
 
-                    <button className='flex bg-purple-700 text-white px-10 py-3 rounded'>
-                        Entrar
-                    </button>
+            <button
+                className="w-full bg-purple-700 hover:bg-purple-600 transition-colors text-white px-10 py-3 rounded-lg"
+            >
+                Entrar
+            </button>
 
-                    <p className="text-purple-400">
-                        Não tem conta?{' '}
-                        <span onClick={
-                            () => navigate('/cadastro')
-                        } className="text-purple-500 cursor-pointer">
-                            Criar conta
-                        </span>
-                    </p>
-                </form>
-            </div>
+            <p className="text-purple-400">
+                Não tem conta?{' '}
+
+                <span
+                    onClick={() => navigate('/cadastro')}
+                    className="text-purple-500 hover:text-purple-400 cursor-pointer"
+                >
+                    Criar conta
+                </span>
+
+            </p>
+
+        </form>
        
     );
 }
