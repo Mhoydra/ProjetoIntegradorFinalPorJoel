@@ -11,7 +11,7 @@ export default function Musica() {
     if (!musica) {
         const videoId = id;
         return (
-            <div className="min-h-screen bg-gray-950 text-white">
+            <div className="min-h-screen bg-linear-to-b from-purple-900 to-black bg-gray-950 text-white">
                 <header className="p-5">
                     <button
                         className="
@@ -63,7 +63,7 @@ export default function Musica() {
         );
     }
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-900 to-black bg-gray-950 text-white">
+        <div className="min-h-screen bg-linear-to-b from-purple-900 to-black bg-gray-950 text-white">
             <header className="p-5">
                 <button
                     className="
