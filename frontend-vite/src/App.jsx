@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage.jsx'
 import Cadastro from './components/Cadastro.jsx'
 import Home from './components/Home.jsx'
 import Musica from './components/Pages/Musica.jsx'
+import CriarRhythmGame from './components/CriarRhythimGame.jsx'
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
-      <Route path="/home" element={<Home/>}/>
-      <Route path='/musica/:id' element={<Musica />}/>
+      <Route path="/home" element={<Home/>} />
+      <Route path='/musica/:id' element={<Musica />} />
+      <Route path="/criar-rhythm-game" element={<CriarRhythmGame />} />
     </Routes>
   )
 }
