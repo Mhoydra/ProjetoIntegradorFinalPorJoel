@@ -52,10 +52,10 @@ export default function Musica() {
                     </div>
                     <div className="mt-6">
                         <h1 className="text-2xl md:text-3xl font-bold">
-                            Vídeo do YouTube
+                            
                         </h1>
                         <p className="text-gray-400 mt-2">
-                            Reproduzido pelo YouTube
+                            
                         </p>
                     </div>
                 </main>

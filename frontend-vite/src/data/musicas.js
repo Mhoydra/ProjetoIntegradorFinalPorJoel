@@ -21,7 +21,7 @@ export const musicas = [
   {
     id: 2,
     nome: "Dead Embrionic Cells",
-    artista: "sajdhskaakkjahdkjasfsfsfsfsdfsdfsddfdglkdfjgldkgjlkdjgdlk",
+    artista: "Sepultura",
     imagem: CelulasEmbrionariasMortasImg,
     audio: CelulasEmbrionariasMortasMusic,
   },
