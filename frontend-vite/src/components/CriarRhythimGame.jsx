@@ -4,7 +4,11 @@ import {
     listarMusicas,
     deletarMusica
 } from "../services/musicDB";
-
+import {
+    analisarAudio,
+    detectarPicos,
+    filtrarPicos
+} from "../services/audioAnalyzer";
 export default function CriarRhythmGame() {
 
     const [nome, setNome] = useState("");
@@ -23,6 +27,41 @@ export default function CriarRhythmGame() {
     useEffect(() => {
         carregarMusicas();
     }, []);
+
+    async function testarAnalise(musica) {
+
+    try {
+
+        const resultado = await analisarAudio(musica.audio);
+
+        console.log("Resultado da análise:", resultado);
+
+        const picos = detectarPicos(resultado);
+
+        console.log("Picos detectados:", picos);
+        console.log("Quantidade de picos:", picos.length);
+
+        const picosFiltrados = filtrarPicos(picos);
+
+        console.log(
+            "Picos após filtro:",
+            picosFiltrados
+        );
+
+        console.log(
+            "Quantidade após filtro:",
+            picosFiltrados.length
+        );
+
+    } catch (erro) {
+
+        console.error(
+            "Erro ao analisar áudio:",
+            erro
+        );
+
+    }
+}
 
     async function salvarMusica(e) {
         e.preventDefault();
@@ -202,6 +241,12 @@ export default function CriarRhythmGame() {
                                                 controls
                                                 className="w-full mt-3"
                                             />
+                                            <button
+                                                onClick={() => testarAnalise(musica)}
+                                                className="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-lg mt-3"
+                                            >
+                                                Analisar áudio
+                                            </button>
 
                                         </div>
 
