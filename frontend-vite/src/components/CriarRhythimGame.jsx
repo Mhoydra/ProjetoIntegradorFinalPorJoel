@@ -1,4 +1,10 @@
-import { useEffect, useState } from "react";
+import { 
+    gerarChart 
+} from "../services/chartGenerator";
+import { 
+    useEffect, 
+    useState 
+} from "react";
 import {
     adicionarMusica,
     listarMusicas,
@@ -9,6 +15,7 @@ import {
     detectarPicos,
     filtrarPicos
 } from "../services/audioAnalyzer";
+
 export default function CriarRhythmGame() {
 
     const [nome, setNome] = useState("");
@@ -30,38 +37,38 @@ export default function CriarRhythmGame() {
 
     async function testarAnalise(musica) {
 
-    try {
+        try {
 
-        const resultado = await analisarAudio(musica.audio);
+            const resultado = await analisarAudio(musica.audio);
 
-        console.log("Resultado da análise:", resultado);
+            console.log("Resultado da análise:", resultado);
 
-        const picos = detectarPicos(resultado);
+            const picos = detectarPicos(resultado);
 
-        console.log("Picos detectados:", picos);
-        console.log("Quantidade de picos:", picos.length);
+            console.log("Picos detectados:", picos);
+            console.log("Quantidade de picos:", picos.length);
 
-        const picosFiltrados = filtrarPicos(picos);
+            const picosFiltrados = filtrarPicos(picos, 0.12);
 
-        console.log(
-            "Picos após filtro:",
-            picosFiltrados
-        );
+            console.log("Picos após filtros:", picosFiltrados);
+            console.log("Quantidade após filtros:",
+                picosFiltrados.length
+            );
 
-        console.log(
-            "Quantidade após filtro:",
-            picosFiltrados.length
-        );
+            const chart = gerarChart(picosFiltrados);
 
-    } catch (erro) {
+            console.log("Chart gerado:", chart);
+            console.log("Quantidade de notas:", chart.length);
 
-        console.error(
-            "Erro ao analisar áudio:",
-            erro
-        );
+        } catch (erro) {
 
+            console.error(
+                "Erro ao analisar áudio:",
+                erro
+            );
+
+        }
     }
-}
 
     async function salvarMusica(e) {
         e.preventDefault();

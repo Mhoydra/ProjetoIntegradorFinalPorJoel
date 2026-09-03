@@ -60,7 +60,7 @@ export function detectarPicos(resultados) {
 
     // Só consideramos algo como pico
     // se estiver significativamente acima da média.
-    const limite = media * 1.5;
+    const limite = media * 1.15;
 
     const picos = [];
 

@@ -11,3 +11,13 @@ body,
 body {
   background-color: #030712;
 }
+
+@keyframes cair {
+    from {
+        top: -64px;
+    }
+
+    to {
+        top: calc(100vh - 160px);
+    }
+}

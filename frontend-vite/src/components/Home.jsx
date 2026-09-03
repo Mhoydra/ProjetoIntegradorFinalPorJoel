@@ -3,6 +3,7 @@ import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { LuBookMarked } from "react-icons/lu";
 import { musicas } from "../data/musicas";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 
 import prisma from "../assets/imgAlbuns/prisma.webp";
@@ -11,7 +12,7 @@ import mundo from "../assets/imgAlbuns/mundo.jpg";
 import tango from "../assets/imgAlbuns/tango.jpg";
 
 export default function Home() {
-
+    const navigate = useNavigate();
     const albunsData = [
         {
             name: "Álbum 1",
@@ -126,6 +127,26 @@ export default function Home() {
                         >
                         
                             Explorar podcasts
+
+                        </button>
+                    </div>
+                    <div className="bg-gray-900 border border-gray-800 p-4 rounded-xl space-y-3">
+                        <h3 className="font-bold">
+                            
+                            Por que não jogar sua musica?
+                        
+                        </h3>
+                        <p className="text-sm text-gray-400">
+                            
+                            Baixe um arquivo mp3 de sua musica e escolha uma imagem  
+                        
+                        </p>
+                        <button
+                            onClick={() => navigate('/criar-rhythm-game')}
+                            className="bg-white hover:bg-gray-200 transition-colors text-black px-4 py-2 rounded-full font-semibold"
+                        >
+                        
+                            Criar meu jogo de ritmo
 
                         </button>
                     </div>
