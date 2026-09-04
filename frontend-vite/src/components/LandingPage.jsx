@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import cores from '../assets/imgAlbuns/cores.jpg';
+import Jazz from '../assets/LeandingPage/jassE.JPG'
+import baixo from '../assets/LeandingPage/baixoR.jpg';
+import controle from '../assets/LeandingPage/ControleRoxoR.JPG'
+
 
 function LandingPage() {
 
@@ -123,7 +126,7 @@ function LandingPage() {
         <div className="relative">
           <div className="absolute inset-0 bg-purple-700/20 blur-3xl rounded-full" />
           <img
-            src={cores}
+            src={Jazz}
             alt="Capa musical"
             className="relative w-full aspect-square object-cover rounded-3xl shadow-2xl"
           />
@@ -132,18 +135,18 @@ function LandingPage() {
       <section className="bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
           <img
-            src={cores}
+            src={baixo}
             alt=""
             className="w-full aspect-video object-cover rounded-2xl"
           />
           <div className="space-y-5">
             <span className="text-purple-500 font-semibold">
-              
+
               DESCUBRA
 
             </span>
             <h2 className="text-4xl font-bold">
-              
+
               Encontre novos sons
 
             </h2>
@@ -161,24 +164,24 @@ function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-5">
             <span className="text-purple-500 font-semibold">
-              
+
               BIBLIOTECA
 
             </span>
             <h2 className="text-4xl font-bold">
-              
-              Tudo em um só lugar
+
+              Jogue suas músicas
 
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              
-              Organize suas músicas e tenha acesso ao
-              seu conteúdo de forma simples e rápida.
+
+              Baixe músicas no formato MP3 e uma imagem
+              para criar seu proprio jogo de ritmo.
 
             </p>
           </div>
           <img
-            src={cores}
+            src={controle}
             alt=""
             className="w-full aspect-video object-cover rounded-2xl"
           />
@@ -193,9 +196,9 @@ function LandingPage() {
 
             </h2>
             <p className="text-gray-400 text-center mb-8">
-              
+
               Entre na sua conta para continuar.
-              
+
             </p>
             <form
               onSubmit={handleSubmit}
@@ -208,7 +211,6 @@ function LandingPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-3 rounded-lg bg-gray-100 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
               />
-
               <input
                 type="password"
                 placeholder="Senha"
@@ -216,15 +218,14 @@ function LandingPage() {
                 onChange={(e) => setSenha(e.target.value)}
                 className="w-full p-3 rounded-lg bg-gray-100 text-gray-900 outline-none focus:ring-2 focus:ring-purple-600"
               />
-
               <button
                 className="w-full bg-purple-700 hover:bg-purple-600 transition-colors text-white py-3 rounded-lg font-semibold"
               >
+
                 Entrar
+
               </button>
-
             </form>
-
             <p className="text-center text-gray-400 mt-5">
 
               Não tem conta?{' '}
@@ -233,61 +234,52 @@ function LandingPage() {
                 onClick={() => navigate('/cadastro')}
                 className="text-purple-500 hover:text-purple-400 cursor-pointer"
               >
+
                 Criar conta
+
               </span>
-
             </p>
-
           </div>
-
         </div>
-
       </section>
-
-
-      {/* FOOTER */}
-
       <footer className="border-t border-gray-800">
-
         <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
-
           <div>
-
             <h3 className="text-2xl font-bold">
+
               Biblio
+
               <span className="text-purple-600">
+
                 verso
+
               </span>
             </h3>
-
             <p className="text-gray-500 mt-3">
+
               Seu universo musical.
+
             </p>
-
           </div>
-
-
           <div>
-
             <h4 className="font-bold mb-3">
-              Integrantes
-            </h4>
 
+              Integrantes
+
+            </h4>
             <p className="text-gray-500">Elena Mendener</p>
             <p className="text-gray-500">Joel Miller</p>
             <p className="text-gray-500">Carlos Prelo</p>
-
           </div>
           <div>
-
             <h4 className="font-bold mb-3">
-              Social
-            </h4>
 
+              Social
+
+            </h4>
             <p className="text-gray-500">Facebook</p>
             <p className="text-gray-500">Instagram</p>
             <p className="text-gray-500">LinkedIn</p>
-
           </div>
         </div>
         <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-600">
