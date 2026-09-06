@@ -5,6 +5,7 @@ import {
     useEffect, 
     useState 
 } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     adicionarMusica,
     listarMusicas,
@@ -17,6 +18,8 @@ import {
 } from "../services/audioAnalyzer";
 
 export default function CriarRhythmGame() {
+
+    const navigate = useNavigate();
 
     const [nome, setNome] = useState("");
     const [artista, setArtista] = useState("");
@@ -253,6 +256,12 @@ export default function CriarRhythmGame() {
                                                 className="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-lg mt-3"
                                             >
                                                 Analisar áudio
+                                            </button>
+                                            <button
+                                                onClick={() => navigate(`/rhythm-game/${musica.id}`)}
+                                                className="bg-green-700 hover:bg-green-600 px-4 py-2 rounded-lg mt-3"
+                                            >
+                                                Jogar
                                             </button>
 
                                         </div>

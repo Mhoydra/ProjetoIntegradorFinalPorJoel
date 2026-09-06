@@ -1,7 +1,7 @@
 import { gerarChart } from "../services/chartGenerator";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { listarMusicas } from "../services/musicDB";
+import { buscarMusica } from "../services/musicDB";
 import {
     analisarAudio,
     detectarPicos,
@@ -37,18 +37,19 @@ export default function RhythmGame() {
         "bg-red-500"
     ];
     const navigate = useNavigate();
+    const {id} = useParams();
 
     // CARREGAR MÚSICA
 
     useEffect(() => {
         async function carregarMusica() {
-            const musicas = await listarMusicas();
-            if (musicas.length > 0) {
-                setMusica(musicas[0]);
+            const musicaSelecionada = await buscarMusica(Number(id));
+            if (musicaSelecionada) {
+                setMusica(musicaSelecionada);
             }
         }
         carregarMusica();
-    }, []);
+    }, [id]);
 
     // CRIAR URL DO ÁUDIO
 
@@ -322,14 +323,14 @@ export default function RhythmGame() {
                             onClick={reiniciarJogo}
                             className="bg-purple-600 hover:bg-purple-700 transition px-6 py-3 rounded-xl font-bold"
                         >
-                            🔄 Repetir música
+                            Repetir música
                         </button>
 
                         <button
                             onClick={() => navigate("/criar-rhythm-game")}
                             className="bg-gray-800 hover:bg-gray-700 transition px-6 py-3 rounded-xl font-bold"
                         >
-                            🎵 Criar música
+                            Criar música
                         </button>
 
                     </div>
