@@ -14,7 +14,7 @@ export const musicas = [
   {
     id: 1,
     nome: "YARARARA",
-    artista: "Desconhecido",
+    artista: "AnythingBecomeMoe & TEKOKITO",
     imagem: YarararaImg,
     audio: YarararaMusic,
   },
