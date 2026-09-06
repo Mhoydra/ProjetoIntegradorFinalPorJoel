@@ -1,6 +1,6 @@
 import CadastroNavbar from './cadastroComponents/CadastroNavbar'
 import CadastroForms from './cadastroComponents/CadastroForms'
-import fundo from '../assets/LeandingPage/BaixoMaisClaroR.jpg'
+import fundo from '../assets/LeandingPage/EdiçãoTecladoE.jpg'
 
 export default function Cadastro() {
   return(
