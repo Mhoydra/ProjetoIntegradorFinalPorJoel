@@ -19,6 +19,7 @@
 ## Banco/Database:
 
 1. MySQL(banco de dados);
+2. Youtube DB 3?
 
 ## Dev/Desenvolvimento:
 
