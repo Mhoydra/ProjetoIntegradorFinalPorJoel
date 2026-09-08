@@ -1,11 +1,10 @@
-
-
 export async function analisarAudio(audioFile) {
     const arrayBuffer = await audioFile.arrayBuffer();
 
     const audioContext = new AudioContext();
 
-    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    const audioBuffer =
+        await audioContext.decodeAudioData(arrayBuffer);
 
     const dados = audioBuffer.getChannelData(0);
 
@@ -45,27 +44,23 @@ export async function analisarAudio(audioFile) {
     return resultados;
 }
 
-export function detectarPicos(resultados) {
 
+export function detectarPicos(resultados) {
     if (resultados.length === 0) {
         return [];
     }
 
-    // Média da energia da música
     const media =
         resultados.reduce(
             (soma, ponto) => soma + ponto.energia,
             0
         ) / resultados.length;
 
-    // Só consideramos algo como pico
-    // se estiver significativamente acima da média.
     const limite = media * 1.15;
 
     const picos = [];
 
     for (let i = 1; i < resultados.length - 1; i++) {
-
         const atual = resultados[i];
         const anterior = resultados[i - 1];
         const proximo = resultados[i + 1];
@@ -86,8 +81,11 @@ export function detectarPicos(resultados) {
     return picos;
 }
 
-export function filtrarPicos(picos, intervaloMinimo = 0.20) {
 
+export function filtrarPicos(
+    picos,
+    intervaloMinimo = 0.12
+) {
     const filtrados = [];
 
     for (const pico of picos) {
